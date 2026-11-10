@@ -1,0 +1,11 @@
+{
+  "title": "Between Two Homes",
+  "description": "An interactive mooncake landing page lets visitors cut the cake with a draggable knife to reveal the final title, message, and call to action.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
