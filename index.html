@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111b23" />
+    <title>Between Two Homes — Chloe Tang</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@700;800&family=Gabriela&family=Gaegu:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+        --ink: #111b23;
+        --gold: #ffcf5e;
+        --white: #fff;
+        --page-width: 1440px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        background: var(--ink);
+      }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        overflow-x: hidden;
+        background: var(--ink);
+        color: var(--white);
+      }
+
+      img {
+        display: block;
+      }
+
+      .page {
+        width: min(100%, var(--page-width));
+        margin-inline: auto;
+        overflow: hidden;
+        background: var(--ink);
+      }
+
+      .hero {
+        position: relative;
+        isolation: isolate;
+        aspect-ratio: 1440 / 1024;
+        overflow: hidden;
+        background: linear-gradient(180deg, #1f3251 0%, #111b23 100%);
+      }
+
+      .hero__stars {
+        position: absolute;
+        z-index: -1;
+        top: 3.9%;
+        left: 2.85%;
+        width: 93.16%;
+        height: auto;
+      }
+
+      .hero__cake {
+        position: absolute;
+        top: 30.57%;
+        height: auto;
+      }
+
+      .hero__cake--left {
+        left: 15.07%;
+        width: 17.71%;
+      }
+
+      .hero__cake--right {
+        left: 67.08%;
+        width: 17.99%;
+      }
+
+      .hero__title {
+        position: absolute;
+        top: 38.67%;
+        left: 50%;
+        width: 44%;
+        margin: 0;
+        transform: translateX(-50%);
+        color: var(--white);
+        font-family: "Gabriela", Georgia, serif;
+        font-size: clamp(36px, 4.71vw, 67.8px);
+        font-weight: 400;
+        line-height: 1.28;
+        text-align: center;
+      }
+
+      .hero__byline {
+        position: absolute;
+        top: 58.8%;
+        left: 50%;
+        margin: 0;
+        transform: translateX(-50%);
+        color: var(--white);
+        font-family: "Gaegu", cursive;
+        font-size: clamp(19px, 1.95vw, 28px);
+        line-height: 1.2;
+        white-space: nowrap;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 0;
+        border-radius: 999px;
+        background: var(--gold);
+        color: #121c24;
+        font-family: "Alegreya Sans", sans-serif;
+        font-size: clamp(18px, 1.67vw, 24px);
+        font-weight: 700;
+        line-height: 1;
+        text-decoration: none;
+        transition: background-color 150ms ease, transform 150ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+        background: #ffdc7f;
+      }
+
+      .button:focus-visible {
+        outline: 3px solid var(--white);
+        outline-offset: 4px;
+      }
+
+      .hero__button {
+        position: absolute;
+        top: 72.75%;
+        left: 50%;
+        width: 256px;
+        height: 69px;
+        transform: translateX(-50%);
+        font-size: clamp(18px, 1.67vw, 24px);
+      }
+
+      .hero__button:hover {
+        transform: translate(-50%, -2px);
+      }
+
+      .chapter {
+        position: relative;
+        aspect-ratio: 1440 / 1632;
+        overflow: hidden;
+        background: linear-gradient(180deg, #111b23 0%, #111b23 72%, #141f2b 100%);
+      }
+
+      .chapter__canvas {
+        position: absolute;
+        top: 6.127%;
+        left: 0;
+        width: 100%;
+        height: 93.873%;
+      }
+
+      .chapter__heading {
+        position: absolute;
+        z-index: 2;
+        top: 6.53%;
+        left: 6.94%;
+        width: 54%;
+        margin: 0;
+        color: var(--gold);
+        font-family: "Gabriela", Georgia, serif;
+        font-size: clamp(38px, 4.71vw, 67.8px);
+        font-weight: 400;
+        line-height: 1.28;
+      }
+
+      .chapter__heading span {
+        display: block;
+        color: var(--white);
+      }
+
+      .chapter__moon {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        right: 6.94%;
+        width: 8.61%;
+        height: auto;
+      }
+
+      .chapter__lights {
+        position: absolute;
+        z-index: 1;
+        top: 23.11%;
+        left: 0;
+        width: 100%;
+        height: auto;
+      }
+
+      .chapter__buildings {
+        position: absolute;
+        z-index: 1;
+        top: 59.72%;
+        left: 0;
+        width: 100%;
+        height: auto;
+      }
+
+      .chapter__taxi {
+        position: absolute;
+        z-index: 2;
+        top: 62.14%;
+        left: 13.05%;
+        width: 37.99%;
+        height: auto;
+      }
+
+      .chapter__copy {
+        position: absolute;
+        z-index: 3;
+        top: 81.5%;
+        left: 6.94%;
+        width: 65.7%;
+        margin: 0;
+        color: var(--white);
+        font-family: "Gaegu", cursive;
+        font-size: clamp(18px, 1.67vw, 24px);
+        font-weight: 400;
+        line-height: 1.667;
+      }
+
+      .chapter__dim-sum {
+        position: absolute;
+        z-index: 2;
+        top: 73.96%;
+        left: 74%;
+        width: 21.04%;
+        height: 18.18%;
+      }
+
+      .chapter__red-pocket {
+        position: absolute;
+        z-index: 2;
+        top: 89.02%;
+        left: 86.06%;
+        width: 13.61%;
+        height: 15.37%;
+      }
+
+      .photo-journey {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 509px;
+        overflow: hidden;
+        background: #f3f3f3;
+      }
+
+      .photo-journey__track {
+        position: absolute;
+        top: 40px;
+        left: 0;
+        display: flex;
+        width: max-content;
+        height: 360.55px;
+        animation: photo-journey-loop 72s linear infinite;
+      }
+
+      .photo-journey__strip {
+        display: block;
+        flex: none;
+        width: 1605.413px;
+        height: 360.55px;
+        max-width: none;
+      }
+
+      .photo-journey__airplane {
+        position: absolute;
+        z-index: 2;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        pointer-events: none;
+      }
+
+      .photo-journey:hover .photo-journey__track,
+      .photo-journey:focus .photo-journey__track {
+        animation-play-state: paused;
+      }
+
+      @keyframes photo-journey-loop {
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      .story {
+        position: relative;
+        min-height: 1000px;
+        margin-top: -1px;
+        background: linear-gradient(180deg, #111b23 0%, #1b2a3d 100%);
+      }
+
+      .story__earth {
+        position: absolute;
+        top: 20.95%;
+        width: 40.35%;
+        height: auto;
+      }
+
+      .story__earth--left {
+        left: -20.28%;
+      }
+
+      .story__earth--right {
+        left: 79.65%;
+      }
+
+      .story__copy {
+        position: absolute;
+        top: 10%;
+        left: 23.61%;
+        width: 52.5%;
+        color: var(--white);
+        font-family: "Gaegu", cursive;
+        font-size: clamp(18px, 1.67vw, 24px);
+        line-height: 1.667;
+      }
+
+      .story__copy p {
+        margin: 0 0 1.25em;
+      }
+
+      .story__copy p:last-child {
+        margin-bottom: 0;
+      }
+
+      .story__next {
+        position: absolute;
+        z-index: 2;
+        top: auto;
+        bottom: 64px;
+        right: 6.94%;
+        width: 256px;
+        height: 69px;
+        font-size: clamp(18px, 1.67vw, 24px);
+      }
+
+      .page__end {
+        height: 302px;
+        background: linear-gradient(180deg, #1b2a3d 0%, #111b23 100%);
+      }
+
+      @media (max-width: 900px) {
+        .hero {
+          min-height: 620px;
+          aspect-ratio: auto;
+        }
+
+        .hero__stars {
+          top: 3%;
+          left: -22%;
+          width: 144%;
+          max-width: none;
+        }
+
+        .hero__cake {
+          top: 25%;
+          width: 33%;
+          height: auto;
+        }
+
+        .hero__cake--left {
+          left: 5%;
+        }
+
+        .hero__cake--right {
+          left: 62%;
+        }
+
+        .hero__title {
+          top: 40%;
+          width: 90%;
+          font-size: clamp(40px, 10vw, 56px);
+        }
+
+        .hero__byline {
+          top: 61%;
+          font-size: 24px;
+        }
+
+        .hero__button {
+          top: 75%;
+          width: 220px;
+          height: 60px;
+          font-size: 21px;
+        }
+
+        .chapter {
+          aspect-ratio: auto;
+          overflow: hidden;
+          padding: 44px 20px 52px;
+        }
+
+        .chapter__canvas {
+          position: relative;
+          top: auto;
+          left: auto;
+          display: flex;
+          width: 100%;
+          height: auto;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 24px;
+        }
+
+        .chapter__heading {
+          position: relative;
+          top: auto;
+          left: auto;
+          width: 100%;
+          padding-right: 56px;
+          font-size: clamp(38px, 9.5vw, 56px);
+        }
+
+        .chapter__moon {
+          top: 0;
+          right: 0;
+          width: 54px;
+        }
+
+        .chapter__lights,
+        .chapter__buildings,
+        .chapter__taxi,
+        .chapter__copy,
+        .chapter__dim-sum,
+        .chapter__red-pocket {
+          position: relative;
+          top: auto;
+          right: auto;
+          bottom: auto;
+          left: auto;
+          width: 100%;
+          height: auto;
+        }
+
+        .chapter__lights {
+          width: calc(100% + 40px);
+          max-width: none;
+          margin-inline: -20px;
+        }
+
+        .chapter__buildings {
+          width: calc(100% + 40px);
+          max-width: none;
+          margin: -24px -20px 0;
+        }
+
+        .chapter__taxi {
+          width: min(100%, 440px);
+          align-self: center;
+          margin-top: -34px;
+        }
+
+        .chapter__copy {
+          font-size: 21px;
+          line-height: 1.55;
+        }
+
+        .chapter__dim-sum {
+          width: min(72%, 300px);
+          align-self: center;
+          margin-top: -12px;
+        }
+
+        .chapter__red-pocket {
+          width: min(42%, 190px);
+          align-self: flex-end;
+          margin-top: -14px;
+        }
+
+        .photo-journey {
+          height: 320px;
+        }
+
+        .photo-journey__track {
+          top: 30px;
+          height: 256.54px;
+          animation-duration: 48s;
+        }
+
+        .photo-journey__strip {
+          width: 1142.7px;
+          height: 256.54px;
+          object-position: center;
+        }
+
+        .story {
+          display: flex;
+          min-height: 0;
+          flex-direction: column;
+          gap: 28px;
+          padding: 44px 24px 58px;
+        }
+
+        .story__copy {
+          position: relative;
+          top: auto;
+          left: auto;
+          order: 1;
+          width: 100%;
+          font-size: 21px;
+          line-height: 1.55;
+        }
+
+        .story__earth {
+          position: relative;
+          top: auto;
+          left: auto;
+          width: min(76vw, 320px);
+          align-self: center;
+        }
+
+        .story__earth--left {
+          order: 0;
+          margin-left: -36vw;
+        }
+
+        .story__earth--right {
+          order: 2;
+          margin-right: -36vw;
+        }
+
+        .story__next {
+          position: relative;
+          top: auto;
+          bottom: auto;
+          right: auto;
+          order: 3;
+          width: min(100%, 256px);
+          height: 62px;
+          align-self: center;
+        }
+
+        .page__end {
+          height: 40px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .photo-journey__track {
+          animation: none;
+        }
+
+        *,
+        *::before,
+        *::after {
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page" id="top">
+      <header class="hero" aria-labelledby="page-title">
+        <img
+          class="hero__stars"
+          src="assets/figma/hero-stars.svg"
+          alt=""
+          aria-hidden="true"
+          data-node-id="28:1840"
+        />
+        <img
+          class="hero__cake hero__cake--left"
+          src="assets/figma/hero-cake-left.svg"
+          alt=""
+          aria-hidden="true"
+          data-node-id="28:1657"
+        />
+        <img
+          class="hero__cake hero__cake--right"
+          src="assets/figma/hero-cake-right.svg"
+          alt=""
+          aria-hidden="true"
+          data-node-id="28:1642"
+        />
+        <h1 class="hero__title" id="page-title">Between<br />Two Homes</h1>
+        <p class="hero__byline">By Chloe Tang</p>
+        <a class="button hero__button" href="#chapter">Start Exploring</a>
+      </header>
+
+      <section class="chapter" id="chapter" aria-labelledby="chapter-title">
+        <div class="chapter__canvas">
+          <h2 class="chapter__heading" id="chapter-title">
+            Chapter 1:
+            <span>Where I Come From</span>
+          </h2>
+          <img
+            class="chapter__moon"
+            src="assets/figma/moon.svg"
+            alt=""
+            aria-hidden="true"
+            data-node-id="52:5525"
+          />
+          <img
+            class="chapter__lights"
+            src="assets/figma/street-lights.svg"
+            alt=""
+            aria-hidden="true"
+            data-node-id="52:3960"
+          />
+          <img
+            class="chapter__buildings"
+            src="assets/figma/buildings.svg"
+            alt=""
+            aria-hidden="true"
+            data-node-id="52:3831"
+          />
+          <img
+            class="chapter__taxi"
+            src="assets/figma/taxi.svg"
+            alt=""
+            aria-hidden="true"
+            data-node-id="52:4575"
+          />
+          <p class="chapter__copy" data-node-id="52:3865">
+            I was born in Hong Kong in 2005. I grew up in a small, densely populated city,
+            surrounded by overworked office workers during the day and bustling nightlife
+            after dusk. I was raised alongside my older sister, and our childhood was
+            shaped by a blend of Chinese and Western influences. We celebrated both
+            Chinese New Year and Christmas, and grew up enjoying Cantonese cuisine.
+          </p>
+          <img
+            class="chapter__dim-sum"
+            src="assets/figma/dim-sum.svg"
+            alt=""
+            aria-hidden="true"
+            data-node-id="52:3891"
+          />
+          <img
+            class="chapter__red-pocket"
+            src="assets/figma/red-pocket.svg"
+            alt=""
+            aria-hidden="true"
+            data-node-id="52:3867"
+          />
+        </div>
+      </section>
+
+      <section
+        class="photo-journey"
+        role="region"
+        aria-label="Family memories photo gallery"
+        tabindex="0"
+        data-node-id="52:3740"
+      >
+        <div class="photo-journey__track" aria-hidden="true">
+          <img class="photo-journey__strip" src="assets/figma/gallery-strip.svg" alt="" />
+          <img class="photo-journey__strip" src="assets/figma/gallery-strip.svg" alt="" />
+        </div>
+        <img
+          class="photo-journey__airplane"
+          src="assets/figma/airplane-tail.svg"
+          alt=""
+          aria-hidden="true"
+        />
+      </section>
+
+      <section class="story" aria-label="Family history between Hong Kong and Canada">
+        <img
+          class="story__earth story__earth--left"
+          src="assets/figma/earth-left.svg"
+          alt=""
+          aria-hidden="true"
+          data-node-id="52:3786"
+        />
+        <div class="story__copy">
+          <p data-node-id="52:3807">
+            Every two to three years, my family would buy four flight tickets to Canada
+            to visit my maternal relatives. My grandparents lived in the suburbs, and I
+            distinctly remember stepping outside to breathe in the fresh air and look up
+            at the wide, blue sky. I also remember my grandparents standing at the front
+            door of their big house, waiting to welcome us. My grandfather and his family
+            immigrated to Canada during the 1990s, a period when many Hong Kong residents
+            were emigrating ahead of the 1997 Handover of Hong Kong from British to
+            Chinese rule. His decision to come here became the beginning of my family's
+            connection to the country.
+          </p>
+          <p>
+            Although my mother eventually returned to Hong Kong with my father, where they
+            settled down and raised my sister and me, Canada remained a part of our family
+            history.
+          </p>
+          <p>
+            Growing up, I never thought much about why my family had moved between these
+            two places. To me, Hong Kong was home, while Canada was somewhere I visited
+            every few years to see my grandparents. I never imagined that one day, I
+            would make the same journey as my grandfather, leaving Hong Kong to build a
+            life of my own in Canada.
+          </p>
+        </div>
+        <img
+          class="story__earth story__earth--right"
+          src="assets/figma/earth-right.svg"
+          alt=""
+          aria-hidden="true"
+          data-node-id="52:3810"
+        />
+        <a class="button story__next" href="#top" data-node-id="72:6416">
+          Next Chapter →
+        </a>
+      </section>
+      <div class="page__end" aria-hidden="true"></div>
+    </main>
+  </body>
+</html>
